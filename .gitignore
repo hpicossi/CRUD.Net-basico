@@ -2,3 +2,14 @@
 .vs/Sol_Almacen/v16/.suo
 Sol_Almacen.Presentacion/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 Sol_Almacen.Presentacion/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.dll
+*.cache
+*.resources
+.vs/Sol_Almacen/v16/.suo
+*.exe
+*.config
+*.pdb
+*.cache
+*.cache
+*.CopyComplete
+*.txt

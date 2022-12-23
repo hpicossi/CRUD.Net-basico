@@ -31,7 +31,7 @@ namespace Sol_Almacen.Presentacion
         {
             this.Dgv_articulos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.Txt_articulo_ar = new System.Windows.Forms.TextBox();
+            this.Txt_descripcion_ar = new System.Windows.Forms.TextBox();
             this.Txt_marca_ar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_descripcion_um = new System.Windows.Forms.TextBox();
@@ -78,19 +78,22 @@ namespace Sol_Almacen.Presentacion
             this.label1.Text = "Articulo:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Txt_articulo_ar
+            // Txt_descripcion_ar
             // 
-            this.Txt_articulo_ar.Location = new System.Drawing.Point(76, 13);
-            this.Txt_articulo_ar.Name = "Txt_articulo_ar";
-            this.Txt_articulo_ar.Size = new System.Drawing.Size(364, 20);
-            this.Txt_articulo_ar.TabIndex = 2;
+            this.Txt_descripcion_ar.Location = new System.Drawing.Point(76, 13);
+            this.Txt_descripcion_ar.Name = "Txt_descripcion_ar";
+            this.Txt_descripcion_ar.ReadOnly = true;
+            this.Txt_descripcion_ar.Size = new System.Drawing.Size(364, 20);
+            this.Txt_descripcion_ar.TabIndex = 2;
             // 
             // Txt_marca_ar
             // 
             this.Txt_marca_ar.Location = new System.Drawing.Point(543, 12);
             this.Txt_marca_ar.Name = "Txt_marca_ar";
+            this.Txt_marca_ar.ReadOnly = true;
             this.Txt_marca_ar.Size = new System.Drawing.Size(371, 20);
             this.Txt_marca_ar.TabIndex = 4;
+            this.Txt_marca_ar.TextChanged += new System.EventHandler(this.Txt_marca_ar_TextChanged);
             // 
             // label2
             // 
@@ -105,6 +108,7 @@ namespace Sol_Almacen.Presentacion
             // 
             this.Txt_descripcion_um.Location = new System.Drawing.Point(76, 49);
             this.Txt_descripcion_um.Name = "Txt_descripcion_um";
+            this.Txt_descripcion_um.ReadOnly = true;
             this.Txt_descripcion_um.Size = new System.Drawing.Size(331, 20);
             this.Txt_descripcion_um.TabIndex = 6;
             // 
@@ -119,6 +123,7 @@ namespace Sol_Almacen.Presentacion
             // 
             // Btn_lupa_um
             // 
+            this.Btn_lupa_um.Enabled = false;
             this.Btn_lupa_um.Location = new System.Drawing.Point(413, 48);
             this.Btn_lupa_um.Name = "Btn_lupa_um";
             this.Btn_lupa_um.Size = new System.Drawing.Size(27, 20);
@@ -129,17 +134,20 @@ namespace Sol_Almacen.Presentacion
             // 
             // Btn_lupa_ca
             // 
+            this.Btn_lupa_ca.Enabled = false;
             this.Btn_lupa_ca.Location = new System.Drawing.Point(887, 46);
             this.Btn_lupa_ca.Name = "Btn_lupa_ca";
             this.Btn_lupa_ca.Size = new System.Drawing.Size(27, 20);
             this.Btn_lupa_ca.TabIndex = 10;
             this.Btn_lupa_ca.Text = "...";
             this.Btn_lupa_ca.UseVisualStyleBackColor = true;
+            this.Btn_lupa_ca.Click += new System.EventHandler(this.Btn_lupa_ca_Click);
             // 
             // txt_descripcion_ca
             // 
             this.txt_descripcion_ca.Location = new System.Drawing.Point(543, 47);
             this.txt_descripcion_ca.Name = "txt_descripcion_ca";
+            this.txt_descripcion_ca.ReadOnly = true;
             this.txt_descripcion_ca.Size = new System.Drawing.Size(338, 20);
             this.txt_descripcion_ca.TabIndex = 9;
             this.txt_descripcion_ca.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
@@ -157,6 +165,7 @@ namespace Sol_Almacen.Presentacion
             // 
             this.Txt_stock_actual.Location = new System.Drawing.Point(96, 84);
             this.Txt_stock_actual.Name = "Txt_stock_actual";
+            this.Txt_stock_actual.ReadOnly = true;
             this.Txt_stock_actual.Size = new System.Drawing.Size(177, 20);
             this.Txt_stock_actual.TabIndex = 12;
             // 
@@ -177,6 +186,8 @@ namespace Sol_Almacen.Presentacion
             this.Btn_guardar.TabIndex = 13;
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.UseVisualStyleBackColor = true;
+            this.Btn_guardar.Visible = false;
+            this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Btn_cancelar
             // 
@@ -186,6 +197,8 @@ namespace Sol_Almacen.Presentacion
             this.Btn_cancelar.TabIndex = 14;
             this.Btn_cancelar.Text = "Cancelar";
             this.Btn_cancelar.UseVisualStyleBackColor = true;
+            this.Btn_cancelar.Visible = false;
+            this.Btn_cancelar.Click += new System.EventHandler(this.Btn_cancelar_Click);
             // 
             // Btn_nuevo
             // 
@@ -195,6 +208,7 @@ namespace Sol_Almacen.Presentacion
             this.Btn_nuevo.TabIndex = 15;
             this.Btn_nuevo.Text = "Nuevo";
             this.Btn_nuevo.UseVisualStyleBackColor = true;
+            this.Btn_nuevo.Click += new System.EventHandler(this.Btn_nuevo_Click);
             // 
             // Btn_actualizar
             // 
@@ -241,6 +255,7 @@ namespace Sol_Almacen.Presentacion
             this.Btn_buscar.TabIndex = 22;
             this.Btn_buscar.Text = "...";
             this.Btn_buscar.UseVisualStyleBackColor = true;
+            this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // Txt_buscar
             // 
@@ -286,7 +301,7 @@ namespace Sol_Almacen.Presentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_marca_ar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Txt_articulo_ar);
+            this.Controls.Add(this.Txt_descripcion_ar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Dgv_articulos);
             this.Name = "Frm_articulos";
@@ -302,7 +317,7 @@ namespace Sol_Almacen.Presentacion
 
         private System.Windows.Forms.DataGridView Dgv_articulos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_articulo_ar;
+        private System.Windows.Forms.TextBox Txt_descripcion_ar;
         private System.Windows.Forms.TextBox Txt_marca_ar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_descripcion_um;
