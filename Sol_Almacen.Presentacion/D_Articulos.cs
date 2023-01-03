@@ -43,5 +43,46 @@ namespace Sol_Almacen.Presentacion
             }
 
         }
+
+        public string Guardar_ar(int nOpcion, P_Articulos oAr)
+        {
+            string Rpta = "";
+            string Sqltarea = "";
+            MySqlConnection SqlCon = new MySqlConnection();
+
+            try
+            {
+                if (nOpcion == 1)//Nuevo registro
+                {
+                    Sqltarea = "Insert into tb_articulos(descripcion_ar," +
+                                                        "marca_ar," +
+                                                        "codigo_um," +
+                                                        "codigo_ca," +
+                                                        "stock_actual, " +
+                                                        "fecha_crea, " +
+                                                        "fecha_modifica)" +
+                                                        "values('" + oAr.Descripcion_ar + "' " +
+                                                                "'" + oAr.Marca_ar + "'" +
+                                                                "'" + oAr.Codigo_um + "'" +
+                                                                "'" + oAr.Codigo_ca + "'" +
+                                                                "'" + oAr.Stock_actual + "'" +
+                                                                "'" + oAr.Fecha_crea + "'" +
+                                                                "'" + oAr.Fecha_modifica + "')";
+                }
+                else // Actualizar registro
+                {
+                        
+                }
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return Rpta;
+        }
     }
 }

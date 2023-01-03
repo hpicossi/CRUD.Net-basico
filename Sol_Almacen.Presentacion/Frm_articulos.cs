@@ -71,6 +71,17 @@ namespace Sol_Almacen.Presentacion
             Btn_reporte.Enabled = lEstado;
             Btn_salir.Enabled = lEstado;
         }
+
+        private void Limpia_text()
+        {
+            Txt_descripcion_ar.Text = "";
+            Txt_marca_ar.Text = "";
+            Txt_descripcion_um.Text = "";
+            txt_descripcion_ca.Text = "";
+            Txt_stock_actual.Text = "";
+
+        }
+
         #endregion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +93,8 @@ namespace Sol_Almacen.Presentacion
         {
 
         }
+
+
 
         private void Frm_articulos_Load(object sender, EventArgs e)
         {
@@ -125,6 +138,7 @@ namespace Sol_Almacen.Presentacion
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
+            this.Limpia_text();
             this.Estado_texto(false);
             this.Estado_botones_procesos(false);
             this.Estado_botones_principales(true);
@@ -145,6 +159,7 @@ namespace Sol_Almacen.Presentacion
 
         private void Btn_nuevo_Click(object sender, EventArgs e)
         {
+            this.Limpia_text();
             this.Estado_texto(true);
             this.Estado_botones_procesos(true);
             this.Estado_botones_principales(false);
